@@ -1,0 +1,22 @@
+{
+  "name": "readme",
+  "version": "1.0.0",
+  "description": "MERN stack chat app with socket.io",
+  "main": "index.js",
+  "scripts": {
+    "start":"node Backend/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Albinpoulose/readme.git"
+  },
+  "author": "Albin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Albinpoulose/readme/issues"
+  },
+  "homepage": "https://github.com/Albinpoulose/readme#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
