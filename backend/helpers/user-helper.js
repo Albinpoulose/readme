@@ -38,5 +38,23 @@ module.exports = {
          console.log("incorrect email id ");
        }
        })
+  },
+
+  searchUser: (userData)=>{
+  // console.log(userName.value);
+  const {user,value} = userData; 
+   return new Promise (async(resolve,reject)=>{
+    //  console.log(value,user);
+    const userResult= await User.find({ name:new RegExp(value,'i'),_id:{$ne:user._id}}).exec();
+    // console.log(userResult.length);
+
+    if(userResult!=0){
+      resolve(userResult);
+    }
+    else{
+      console.log("No user found ");
+    }
+   })
+
   }
 };
