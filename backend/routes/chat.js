@@ -16,7 +16,17 @@ router.post("/search", function (req, res, next) {
 
 router.post("/userSelect",(req,res)=>{
   //console.log(req.body);
-  chatHelper.createChat(req.body)
+  chatHelper.createChat(req.body).then((response)=>{
+      // console.log("chat inserted from "+response);
+      const user = {
+        _id : response.senderId
+      }
+//console.log(user);
+      chatHelper.getChatList(user).then((response)=>{
+         //console.log(response);
+         res.json(response);
+      })
+  })
 });
 
 router.post("/chatList",(req,res)=>{
@@ -26,4 +36,4 @@ router.post("/chatList",(req,res)=>{
   })
 })
 
-module.exports = router;
+module.exports = router; 
