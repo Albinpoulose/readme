@@ -3,6 +3,8 @@ const chatHelper = require("../helpers/chat-helper");
 const userHelper = require("../helpers/user-helper");
 var router = express.Router();
 const session = require("express-session");
+const messageHelper = require("../helpers/message-helper");
+const { response } = require("express");
 
 
 
@@ -33,6 +35,14 @@ router.post("/chatList",(req,res)=>{
  // console.log(req.body);
   chatHelper.getChatList(req.body).then((response)=>{
    res.json(response);
+  })
+})
+
+router.post("/getChat",(req,res)=>{
+ // console.log(req.body);
+  messageHelper.getAllMessages(req.body).then((response)=>{
+   // console.log(response);
+    res.json(response)
   })
 })
 
